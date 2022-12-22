@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #586cad;
+    background-color: yellowgreen;
     position: fixed;
     width: 100%;
     z-index: 100;
@@ -29,6 +29,7 @@ input {
     border-radius: 0px;
     padding: 8px;
     border-color: transparent;
+    border-radius: 4px;
 }
 
 .search-form button {
@@ -38,8 +39,9 @@ input {
     padding-left: 10px;
     border-color: transparent;
     border: 0px;
-    background-color: rgb(240, 240, 240);
+    background-color: yellow;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .gallery {
