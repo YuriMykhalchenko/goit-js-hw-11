@@ -52,7 +52,8 @@ const onLoadMore = entries => {
     ) {
       pixabayAPIService.incrementPages();
       try {
-        await pixabayAPIService.onFetchPhotos().then(onLoadPhotos);
+        const photo = await pixabayAPIService.onFetchPhotos();
+        onLoadPhotos(photo);
         timerNotifyEndPhotos = 1;
       } catch (error) {
         reachedEndSearch();
@@ -95,7 +96,13 @@ async function onSubmit(evt) {
 
   pixabayAPIService.setNewQuery = searchQuery;
   pixabayAPIService.resetPage();
-  await pixabayAPIService.onFetchPhotos().then(onLoadPhotos).catch(onError);
+  // await pixabayAPIService.onFetchPhotos().then(onLoadPhotos).catch(onError);
+  try {
+    const photo = await pixabayAPIService.onFetchPhotos();
+    onLoadPhotos(photo);
+  } catch (error) {
+    onError();
+  }
 }
 
 /** function for starting of photo loading */
